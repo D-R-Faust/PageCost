@@ -1,0 +1,51 @@
+# Prompt for input
+
+$decimal_number = Read-Host "Enter the COST PER PAGE"
+
+$estimated_page_count = Read-Host "Enter the estimaged page count"
+
+ 
+
+# Other Variables
+
+$avg_monthly_cost
+
+$avg_yearly_cost
+
+ 
+
+# Display the input
+
+#Write-Host "Cost you entered: $decimal_number"
+
+#Write-Host "Page Count entered: $estimated_page_count"
+
+ 
+
+# Display header information
+
+Write-Host "[Year number]`t[Cost Per Page]`t[Average Cost Monthly]`t[Average Cost Yearly]"
+
+ 
+
+ 
+
+# Multiply the input number by 10% and add it to itself
+
+# performs this calculation 8 times
+
+for ($i = 1; $i  -le 7; $i++){
+
+    $avg_monthly_cost = [decimal]$estimated_page_count * [decimal]$decimal_number
+
+    $avg_yearly_cost = [decimal]$avg_monthly_cost * 12
+
+    Write-Host ["Year" $i] `t [$ $decimal_number] `t [$avg_monthly_cost] `t[$avg_yearly_cost]
+
+ 
+
+    $decimal_number = [decimal]$decimal_number + ([decimal]$decimal_number * 0.10)
+
+    #Write-Host ["Year" $i] `t [$ $decimal_number] `t [$avg_monthly_cost] `t[$avg_yearly_cost]
+
+}
